@@ -15,23 +15,21 @@ export default class ProductTileList extends LightningElement {
     
     @api tilesAreDraggable = false;
 
-    /** Current page in the product list. */
+    
     @track pageNumber = 1;
 
-    /** The number of items on a page. */
+    
     @track pageSize;
 
     
     @track totalItemCount = 0;
 
-    /** JSON.stringified version of filters to pass to apex */
+    
     @track filters = {};
 
     @wire(CurrentPageReference) pageRef;
 
-    /**
-     * Load the list of available products.
-     */
+    
     @wire(getProducts, { filters: '$filters', pageNumber: '$pageNumber' })
     products;
 
